@@ -24,6 +24,17 @@ if(WIN32)
 endif()
 
 #==============================================================================
+# Toolchain Configuration
+#==============================================================================
+if(NOT CMAKE_TOOLCHAIN_FILE AND DEFINED ENV{VCPKG_ROOT})
+    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+endif()
+
+if(CMAKE_TOOLCHAIN_FILE)
+    message(STATUS "Using VCPKG toolchain: ${CMAKE_TOOLCHAIN_FILE}")
+endif()
+
+#==============================================================================
 # WinRT Configuration (OPTIONAL - Easy to remove completely)
 #==============================================================================
 option(CMAKE_ENABLE_WINDOWS_WINRT "Enable Windows WinRT support" ON) # Optional: Turn OFF if not using WinRT (or remove)
@@ -33,17 +44,6 @@ if(CMAKE_ENABLE_WINDOWS_WINRT)
     find_package(cppwinrt CONFIG REQUIRED)
     add_compile_definitions(WINDOWS_WINRT_ENABLED=1)
     message(STATUS "Building with Windows WinRT BLE support")
-endif()
-
-#==============================================================================
-# Toolchain Configuration
-#==============================================================================
-if(NOT CMAKE_TOOLCHAIN_FILE AND DEFINED ENV{VCPKG_ROOT})
-    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
-endif()
-
-if(CMAKE_TOOLCHAIN_FILE)
-    message(STATUS "Using VCPKG toolchain: ${CMAKE_TOOLCHAIN_FILE}")
 endif()
 
 #==============================================================================

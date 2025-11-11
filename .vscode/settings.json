@@ -1,4 +1,6 @@
 {
+	// --- Standard ---
+	"C_Cpp.default.cppStandard": "c++23",
 	// --- CMake ---
 	"cmake.useCMakePresets": "always",
 	"cmake.options.statusBarVisibility": "visible",
@@ -7,8 +9,6 @@
 	"C_Cpp.codeAnalysis.clangTidy.path": "clang-tidy",
 	"C_Cpp.codeAnalysis.clangTidy.buildPath": "${workspaceFolder}/build",
 	"C_Cpp.codeAnalysis.runAutomatically": true,
-	// --- Standard ---
-	"C_Cpp.default.cppStandard": "c++23",
 	// --- Formatting ---
 	"editor.formatOnSave": true,
 	"editor.insertSpaces": false,
@@ -66,6 +66,5 @@
 		"variant": "cpp",
 		"xutility": "cpp",
 		"print": "cpp"
-	},
-	"iis.configDir": ""
+	}
 }
