@@ -7,7 +7,8 @@
 	},
 	"configurePresets": [
 		{
-			"name": "windows-base",
+			"name": "debug",
+			"displayName": "Debug",
 			"description": "Windows development configuration with Visual Studio 2022",
 			"generator": "Visual Studio 17 2022",
 			"binaryDir": "${sourceDir}/build/${presetName}",
@@ -28,9 +29,10 @@
 			}
 		},
 		{
-			"name": "windows-release",
+			"name": "release",
+			"displayName": "Release",
 			"description": "Windows release build with optimizations",
-			"inherits": "windows-base",
+			"inherits": "debug",
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Release"
 			}
@@ -38,35 +40,49 @@
 	],
 	"buildPresets": [
 		{
-			"name": "windows-debug",
+			"name": "build-debug",
+			"displayName": "Build: Debug",
 			"description": "Build Windows debug configuration",
-			"configurePreset": "windows-base",
+			"configurePreset": "debug",
 			"configuration": "Debug"
 		},
 		{
-			"name": "windows-release",
-			"description": "Build Windows release configuration",
-			"configurePreset": "windows-release",
-			"configuration": "Release"
-		},
-		{
-			"name": "windows-clean-build",
+			"name": "build-debug-clean",
+			"displayName": "Build: Debug (Clean first)",
 			"description": "Clean rebuild for Windows",
-			"configurePreset": "windows-base",
+			"configurePreset": "debug",
 			"cleanFirst": true
 		},
 		{
-			"name": "windows-verbose",
+			"name": "build-debug-verbose",
+			"displayName": "Build: Debug Verbose",
 			"description": "Verbose build output for debugging",
-			"configurePreset": "windows-base",
+			"configurePreset": "debug",
 			"verbose": true
+		},
+		{
+			"name": "build-release",
+			"displayName": "Build: Release",
+			"description": "Build Windows release configuration",
+			"configurePreset": "release",
+			"configuration": "Release"
 		}
 	],
 	"testPresets": [
 		{
-			"name": "windows-test",
-			"description": "Run tests on Windows",
-			"configurePreset": "windows-base",
+			"name": "test-debug",
+			"displayName": "Test: Debug",
+			"description": "Run tests for Debug on Windows",
+			"configurePreset": "debug",
+			"output": {
+				"outputOnFailure": true
+			}
+		},
+		{
+			"name": "test-release",
+			"displayName": "Test: Release",
+			"description": "Run tests for Release on Windows",
+			"configurePreset": "release",
 			"output": {
 				"outputOnFailure": true
 			}
