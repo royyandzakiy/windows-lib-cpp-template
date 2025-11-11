@@ -2,7 +2,7 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Debug",
+			"name": "Launch Program",
 			"type": "cppvsdbg",
 			"request": "launch",
 			"program": "${command:cmake.launchTargetPath}",
@@ -10,7 +10,7 @@
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
-			"console": "externalTerminal",
+			"console": "externalTerminal"
 		}
 	]
 }
