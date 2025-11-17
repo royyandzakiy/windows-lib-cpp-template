@@ -12,9 +12,9 @@ struct ComPortInfo {
 };
 
 namespace com_ports {
-    [[nodiscard]] std::vector<ComPortInfo> list_com_ports();
-    void print_com_ports();
-    int run_com_ports();
-}
+[[nodiscard]] std::vector<ComPortInfo> list_com_ports();
+void print_com_ports();
+int run_com_ports();
+} // namespace com_ports
 
 #endif

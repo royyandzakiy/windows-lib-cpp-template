@@ -1,7 +1,7 @@
-#include <print>
+#include "../include/calculator.h"
 #include "../include/mqtt.h"
 #include "../include/ports.h"
-#include "../include/calculator.h"
+#include <print>
 
 #ifdef WINDOWS_WINRT_ENABLED
 #include "../include/ble.h"
@@ -9,8 +9,7 @@
 
 int run_calc(int agc, char **argv);
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char *argv[]) {
     run_calc(argc, argv);
     run_mqtt();
 

@@ -2,11 +2,11 @@
 
 #ifdef WINDOWS_WINRT_ENABLED
 
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Devices.Bluetooth.h>
-#include <winrt/Windows.Devices.Bluetooth.Advertisement.h>
 #include <chrono>
 #include <future>
+#include <winrt/Windows.Devices.Bluetooth.Advertisement.h>
+#include <winrt/Windows.Devices.Bluetooth.h>
+#include <winrt/Windows.Foundation.h>
 
 using namespace winrt;
 using namespace Windows::Devices::Bluetooth;
