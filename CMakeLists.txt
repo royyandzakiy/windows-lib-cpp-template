@@ -1,7 +1,7 @@
 #==============================================================================
 # Project Configuration
 #==============================================================================
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.28)
 
 project(cmake_project_template 
     LANGUAGES CXX
