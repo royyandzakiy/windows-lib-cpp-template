@@ -1,10 +1,18 @@
 target_sources(${CMAKE_PROJECT_NAME}
   PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/complexNumbers.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ble.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mylib.cpp
   PUBLIC FILE_SET HEADERS
   BASE_DIRS ${PROJECT_SOURCE_DIR}
   FILES 
     ${CMAKE_CURRENT_SOURCE_DIR}/complexNumbers.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ble.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mylib.h
+)
+
+target_link_libraries(${CMAKE_PROJECT_NAME}
+	PUBLIC
+		Microsoft::CppWinRT
+		windowsapp
 )

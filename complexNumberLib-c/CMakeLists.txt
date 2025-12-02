@@ -10,6 +10,13 @@ project(
   DESCRIPTION "A simple C++ library for complex numbers"
 )
 
+#==============================================================================
+# Compiler Configuration
+#==============================================================================
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 # include custom options
 include(CMakeOptions.txt)
 
@@ -41,6 +48,24 @@ target_include_directories(${CMAKE_PROJECT_NAME}
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
+
+
+#==============================================================================
+# Toolchain Configuration
+#==============================================================================
+if(NOT CMAKE_TOOLCHAIN_FILE AND DEFINED ENV{VCPKG_ROOT})
+    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+endif()
+
+if(CMAKE_TOOLCHAIN_FILE)
+    message(STATUS "Using VCPKG toolchain: ${CMAKE_TOOLCHAIN_FILE}")
+endif()
+
+#==============================================================================
+# WinRT Configuration
+#==============================================================================
+
+find_package(cppwinrt CONFIG REQUIRED)
 
 # go through the complexNumberLib/ subdirectory and add any files to the library
 add_subdirectory(mylibLib)
