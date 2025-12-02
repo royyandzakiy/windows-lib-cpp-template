@@ -1,0 +1,66 @@
+{
+	"version": 2,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 20,
+		"patch": 0
+	},
+	"configurePresets": [
+		{
+			"name": "windows-base",
+			"description": "Windows development configuration with Visual Studio 2022",
+			"generator": "Visual Studio 17 2022",
+			"binaryDir": "${sourceDir}/build/${presetName}",
+			"architecture": {
+				"value": "x64",
+				"strategy": "external"
+			},
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+				"CMAKE_PREFIX_PATH": "../../generated_libs/mylibLib"
+			},
+			"vendor": {
+				"microsoft.com/VisualStudioSettings/CMake/1.0": {
+					"hostOS": [
+						"Windows"
+					]
+				}
+			}
+		},
+		{
+			"name": "windows-release",
+			"description": "Windows release build with optimizations",
+			"inherits": "windows-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "windows-debug",
+			"description": "Build Windows debug configuration",
+			"configurePreset": "windows-base",
+			"configuration": "Debug"
+		},
+		{
+			"name": "windows-release",
+			"description": "Build Windows release configuration",
+			"configurePreset": "windows-release",
+			"configuration": "Release"
+		},
+		{
+			"name": "windows-clean-build",
+			"description": "Clean rebuild for Windows",
+			"configurePreset": "windows-base",
+			"cleanFirst": true
+		},
+		{
+			"name": "windows-verbose",
+			"description": "Verbose build output for debugging",
+			"configurePreset": "windows-base",
+			"verbose": true
+		}
+	]
+}

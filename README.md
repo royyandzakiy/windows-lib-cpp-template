@@ -8,7 +8,7 @@ cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/script
  && cmake --install build --prefix "generated_libs/mylibLib" --config Debug
 
  # Consumer
- cd examples/complexNumberLib-c-consumer
+ && cd examples/mylib-consumer
 
  && cmake -B build -DCMAKE_PREFIX_PATH="../../generated_libs/mylibLib" -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake 
  && cmake --build build --config Release

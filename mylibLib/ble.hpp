@@ -13,5 +13,5 @@ using namespace Windows::Foundation;
 
 class MyBle {
   public:
-    void run_ble_scan();
+    static void run_ble_scan();
 };

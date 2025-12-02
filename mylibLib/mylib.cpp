@@ -1,4 +1,5 @@
 #include "mylib.h"
+#include "ble.hpp"
 #include "complexNumbers.hpp"
 #include <cstring>
 #include <sstream>
@@ -147,7 +148,7 @@ EXPORT void complex_to_string(ComplexNumberHandle handle, char *buffer, int buff
 }
 
 EXPORT void run_ble_scan() {
-    // do nothing
+    MyBle::run_ble_scan();
 }
 
 #ifdef __cplusplus
