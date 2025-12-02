@@ -55,3 +55,7 @@ __pycache__
 .pytest_cache
 
 .idea
+
+generated_libs
+
+.vs
