@@ -1,5 +1,5 @@
 #include "mylib.h"
-#include "mylibImpl.hpp"
+#include "complexNumbers.hpp"
 #include <cstring>
 #include <sstream>
 
@@ -144,6 +144,10 @@ EXPORT void complex_to_string(ComplexNumberHandle handle, char *buffer, int buff
 
     std::strncpy(buffer, str.c_str(), buffer_size);
     buffer[buffer_size - 1] = '\0';
+}
+
+EXPORT void run_ble_scan() {
+    // do nothing
 }
 
 #ifdef __cplusplus

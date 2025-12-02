@@ -64,7 +64,7 @@ if(NOT CMAKE_VERSION VERSION_LESS "3.23.0")
       FILE_SET "HEADERS"
       TYPE "HEADERS"
       BASE_DIRS "${_IMPORT_PREFIX}/include"
-      FILES "${_IMPORT_PREFIX}/include/mylibLib/mylibImpl.hpp" "${_IMPORT_PREFIX}/include/mylibLib/mylib.h"
+      FILES "${_IMPORT_PREFIX}/include/mylibLib/complexNumbers.hpp" "${_IMPORT_PREFIX}/include/mylibLib/mylib.h"
   )
 else()
   set_property(TARGET mylib::mylib

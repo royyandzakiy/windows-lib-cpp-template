@@ -1,4 +1,4 @@
-#include "mylibLib/mylibImpl.hpp"
+#include "mylibLib/complexNumbers.hpp"
 
 ComplexNumber::ComplexNumber(double real, double imaginary) : _real(real), _imaginary(imaginary) {
     isNan(real, imaginary);
