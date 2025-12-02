@@ -1,0 +1,1 @@
+option(ENABLE_SHARED "Build shared (dynamic) library? If set to off, a static library will be built" OFF)
