@@ -1,0 +1,9 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+# any additional libraries we depend on should go here, e.g.
+# find_dependency(Gtest::Gtest)
+# notice that we use find_dependency(), not find_package() here
+
+include("${CMAKE_CURRENT_LIST_DIR}/mylibTargets.cmake")
