@@ -1,3 +1,5 @@
+#ifdef WINDOWS_WINRT_ENABLED
+
 #include "../include/ble.h"
 #include <print>
 #include <thread>
@@ -60,3 +62,5 @@ void run_ble_scan() {
         std::println(stderr, "Error: {}", ex.what());
     }
 }
+
+#endif // WINDOWS_WINRT_ENABLED

@@ -1,7 +1,5 @@
 #pragma once
 
-#ifdef WINDOWS_WINRT_ENABLED
-
 #include <chrono>
 #include <future>
 #include <winrt/Windows.Devices.Bluetooth.Advertisement.h>
@@ -14,5 +12,3 @@ using namespace Windows::Devices::Bluetooth::Advertisement;
 using namespace Windows::Foundation;
 
 void run_ble_scan();
-
-#endif // WINDOWS_WINRT_ENABLED
