@@ -8,7 +8,6 @@ project(mylib-consumer
     VERSION 1.0.0
 )
 
-include(CMakeOptions.txt)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(copy-dlls)
 include(setup-windows)
