@@ -8,22 +8,8 @@
 	"maintainers": [
 		"Royyan <royyan.abdul@gmail.com>"
 	],
-	"dependencies": [
-		{
-			"name": "paho-mqttpp3",
-			"version>=": "1.2.0"
-		}
-	],
+	"dependencies": [],
 	"features": {
-		"tests": {
-			"description": "Enable unit tests using Google Test",
-			"dependencies": [
-				{
-					"name": "gtest",
-					"version>=": "1.14.0"
-				}
-			]
-		},
 		"cppwinrt": {
 			"description": "Enable BLE functionality with C++/WinRT",
 			"dependencies": [
@@ -36,7 +22,6 @@
 		}
 	},
 	"default-features": [
-		"tests",
 		"cppwinrt"
 	],
 	"builtin-baseline": "8f63c9ed5897d7367a92a442a79f91721e0fd38f"
