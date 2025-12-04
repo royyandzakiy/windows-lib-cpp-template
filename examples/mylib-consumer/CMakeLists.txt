@@ -43,9 +43,28 @@ endif()
 # ==============================================================================
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-include(setup-windows)
-find_package(cppwinrt CONFIG REQUIRED)
-find_package(mylib REQUIRED)
+# include(setup-windows)
+
+# Only find cppwinrt if it's not already found by parent project
+if(NOT TARGET Microsoft::CppWinRT)
+    find_package(cppwinrt CONFIG REQUIRED)
+endif()
+
+# ==============================================================================
+# Library Dependency
+# ==============================================================================
+
+# Try to find the mylib library
+if(TARGET mylib)
+    # We're building as part of the main mylib project
+    message(STATUS "Linking to mylib from same build")
+    set(MYLIB_TARGET mylib)
+else()
+    # We're building standalone - find the installed package
+    message(STATUS "Looking for installed mylib package")
+    find_package(mylib REQUIRED)
+    set(MYLIB_TARGET mylib::mylib)
+endif()
 
 # ==============================================================================
 # Executable Target
@@ -56,36 +75,30 @@ add_executable(${PROJECT_NAME}
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
-    ${CMAKE_INSTALL_PREFIX}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../..  # For accessing mylib headers
 )
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
         Microsoft::CppWinRT
         windowsapp
-        mylib::mylib
+        ${MYLIB_TARGET}
 )
 
 # ==============================================================================
 # Post-build Configuration
 # ==============================================================================
 
-include(copy-dlls)
-copy_dlls_for_target(
-    TARGET ${PROJECT_NAME}
-    LIBRARY_TARGET mylib::mylib
-    DLL_NAME "mylib"
-    DEBUG_POSTFIX "d"
-)
-
-# ==============================================================================
-# Installation (if applicable)
-# ==============================================================================
-
-# install(TARGETS ${PROJECT_NAME}
-#     RUNTIME DESTINATION bin
-# )
-
-# install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/README.md
-#     DESTINATION .
-# )
+# Include copy-dlls only if building shared library
+if(TARGET ${MYLIB_TARGET})
+    get_target_property(MYLIB_TYPE ${MYLIB_TARGET} TYPE)
+    if(MYLIB_TYPE STREQUAL "SHARED_LIBRARY")
+        include(copy-dlls)
+        copy_dlls_for_target(
+            TARGET ${PROJECT_NAME}
+            LIBRARY_TARGET ${MYLIB_TARGET}
+            DLL_NAME "mylib"
+            DEBUG_POSTFIX "d"
+        )
+    endif()
+endif()

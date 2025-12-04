@@ -2,15 +2,26 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Launch Program",
+			"name": "mylib-consumer (debug)",
 			"type": "cppvsdbg",
 			"request": "launch",
-			"program": "${command:cmake.launchTargetPath}",
+			"program": "${workspaceFolder}/build/debug/examples/mylib-consumer/Debug/mylib-consumer.exe",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
-			"console": "externalTerminal"
+			"console": "integratedTerminal"
+		},
+		{
+			"name": "mylib-consumer (release)",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/release/examples/mylib-consumer/Release/mylib-consumer.exe",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"console": "integratedTerminal"
 		}
 	]
 }

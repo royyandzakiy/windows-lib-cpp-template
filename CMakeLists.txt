@@ -11,7 +11,7 @@ project(
 # Initial Setup
 # ==============================================================================
 
-include(cmake/setup-windows.cmake)
+# include(cmake/setup-windows.cmake)
 
 if(NOT CMAKE_TOOLCHAIN_FILE AND DEFINED ENV{VCPKG_ROOT})
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
@@ -109,3 +109,11 @@ install(
     FILES "${CMAKE_CURRENT_BINARY_DIR}/mylibConfig.cmake"
     DESTINATION "lib/cmake/mylib"
 )
+
+# ==============================================================================
+# Examples (Optional)
+# ==============================================================================
+
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples/mylib-consumer)
+endif()
