@@ -115,5 +115,7 @@ install(
 # ==============================================================================
 
 if(BUILD_EXAMPLES)
-    add_subdirectory(examples/mylib-consumer)
+    add_subdirectory(examples/mylib-consumer-cpp23-with_vcpkg)
+    # add_subdirectory(examples/mylib-consumer-cpp17-no_vcpkg)
+    # add_subdirectory(examples/mylib-consumer-c)
 endif()
