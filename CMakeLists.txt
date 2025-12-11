@@ -41,7 +41,7 @@ if(WIN32)
     set(CMAKE_DEBUG_POSTFIX d)
 endif()
 
-include(CMakeOptions.txt)
+include(cmake/options.cmake)
 
 # ==============================================================================
 # Dependencies
@@ -81,6 +81,15 @@ target_include_directories(${CMAKE_PROJECT_NAME}
 
 # Library source files
 add_subdirectory(mylibLib)
+
+# ==============================================================================
+# Docs
+# ==============================================================================
+
+if (BUILD_DOCS)
+	include(cmake/docs.cmake)
+	add_dependencies(${CMAKE_PROJECT_NAME} doxygenDocs) # needs to be below add_library(${CMAKE_PROJECT_NAME} SHARED/STATIC)
+endif (BUILD_DOCS)
 
 # ==============================================================================
 # Installation
