@@ -6,4 +6,4 @@
 - cpack generate both .zip & normal folders versions inside libs using cpack
 
 ## Features
-- auto generate
+- generate dll, auto get and copy dll inside example projects

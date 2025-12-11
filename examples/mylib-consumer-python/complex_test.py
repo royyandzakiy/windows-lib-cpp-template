@@ -48,6 +48,8 @@ print(f"a + b = {complex_to_string_py(c)}")
 print(f"Real part of a: {lib.complex_get_real(a)}")
 print(f"Imaginary part of a: {lib.complex_get_imaginary(a)}")
 
+lib.run_ble_scan()
+
 # Cleanup
 lib.complex_destroy(a)
 lib.complex_destroy(b)

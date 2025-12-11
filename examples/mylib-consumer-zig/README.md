@@ -10,11 +10,11 @@ copy /y ..\..\generated_libs\mylibLib\bin\mylib.dll .
 
 # Run
 zig run src/main.zig --library mylib -I. -L.
-# or\
+# or
 zig run src/main.zig --library ../../generated_libs/mylibLib/bin/mylib -I. -L.
 ```
 
-Output
+## Output
 
 ```bash
 C:\path\to\cpp-library-template-winrt\examples\mylib-consumer-zig>copy /y ..\..\generated_libs\mylibLib\bin\mylib.dll .
@@ -34,4 +34,27 @@ After setting new values:
 Real part of a: 10
 Imaginary part of a: 20
 Conjugate of (2, 3): (2, -3)
+Starting BLE scan (will run for 3 seconds)...
+BLE scan started...
+
+BLE Device Found:
+  Address: 0000E12A539D63DC
+  RSSI: -65 dBm
+  Name: dbkA539D63DC-v1.0
+
+BLE Device Found:
+  Address: 0000E12A539D63DC
+  RSSI: -65 dBm
+  Name: dbkA539D63DC-v1.0
+
+BLE Device Found:
+  Address: 00001BDB34150FD3
+  RSSI: -89 dBm
+
+BLE Device Found:
+  Address: 0000E12A539D63DC
+  RSSI: -67 dBm
+  Name: dbkA539D63DC-v1.0
+
+...
 ```
