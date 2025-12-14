@@ -943,7 +943,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = @CMAKE_SOURCE_DIR@/complexNumberLib
+INPUT                  = @CMAKE_SOURCE_DIR@/mylibLib
 INPUT                 += @CMAKE_SOURCE_DIR@/docs/userGuide/index.md
 INPUT                 += @CMAKE_SOURCE_DIR@/docs/userGuide/introduction.md
 INPUT                 += @CMAKE_SOURCE_DIR@/docs/userGuide/installation.md
