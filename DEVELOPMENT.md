@@ -1,5 +1,8 @@
+## To Do
+- move mylib.h into include, as public header
+- create examples with a Visual Studio .sln based project
+
 ## Plans
-- fix copy dll cmake 
 - add testing (gtest, gmock, pytest)
 - extract from mylibLib/ into include/ & src/ folders, fix cmakelist breaks
 - cpack generate both .zip & normal folders versions inside libs using cpack
